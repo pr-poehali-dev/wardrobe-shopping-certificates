@@ -158,7 +158,7 @@ const Index = () => {
           <div className="cert-divider-light mb-6" />
 
           {/* Fields */}
-          <div className="w-full mb-6">
+          <div className="w-full mb-0">
             <div className="flex items-end gap-4">
               <p className="font-montserrat text-[8px] tracking-[0.3em] uppercase text-gray-400 whitespace-nowrap flex-shrink-0">
                 Действителен до
