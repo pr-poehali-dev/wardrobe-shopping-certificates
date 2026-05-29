@@ -65,10 +65,10 @@ const Index = () => {
         <div className="corner-bl certificate-corner" />
         <div className="corner-br certificate-corner" />
 
-        <div className="flex flex-col items-center px-14 py-10" style={{ height: '297mm' }}>
+        <div className="flex flex-col items-center justify-between px-14 py-10" style={{ height: '297mm' }}>
 
           {/* Header */}
-          <div className="w-full text-center mb-6">
+          <div className="w-full text-center">
             <p className="font-montserrat text-[9px] tracking-[0.4em] uppercase text-gray-400 mb-3">
               Персональный стилист
             </p>
@@ -80,10 +80,10 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="cert-divider mb-6" />
+          <div className="cert-divider" />
 
           {/* Gift Certificate Title */}
-          <div className="text-center mb-6">
+          <div className="text-center">
             <p className="font-montserrat text-[8px] tracking-[0.5em] uppercase text-gray-400 mb-3">
               Настоящий документ подтверждает
             </p>
@@ -93,7 +93,7 @@ const Index = () => {
           </div>
 
           {/* Recipient */}
-          <div className="w-full text-center mb-6">
+          <div className="w-full text-center">
             <p className="font-montserrat text-[8px] tracking-[0.4em] uppercase text-gray-400 mb-2">
               Вручается
             </p>
@@ -105,7 +105,7 @@ const Index = () => {
           </div>
 
           {/* Wish */}
-          <div className="w-full text-center mb-6 px-4">
+          <div className="w-full text-center px-4">
             <p className="font-montserrat text-[8px] tracking-[0.4em] uppercase text-gray-400 mb-3">
               Пожелание
             </p>
@@ -114,10 +114,10 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="cert-divider-light mb-6" />
+          <div className="cert-divider-light" />
 
           {/* Services */}
-          <div className="w-full mb-6 space-y-5">
+          <div className="w-full space-y-5">
             <p className="font-montserrat text-[8px] tracking-[0.4em] uppercase text-gray-400 text-center mb-4">
               Включает услуги
             </p>
@@ -155,7 +155,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="cert-divider-light mb-6" />
+          <div className="cert-divider-light" />
 
           {/* Fields */}
           <div className="w-full mb-0">
@@ -170,7 +170,7 @@ const Index = () => {
           </div>
 
           {/* Footer */}
-          <div className="w-full mt-auto">
+          <div className="w-full">
             <div className="cert-divider mb-6" />
             <div className="flex justify-between items-end">
               <div>
