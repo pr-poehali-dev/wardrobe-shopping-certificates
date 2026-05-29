@@ -169,7 +169,9 @@ const Index = () => {
               <p className="font-montserrat text-[8px] tracking-[0.3em] uppercase text-gray-400 whitespace-nowrap flex-shrink-0">
                 Действителен до
               </p>
-              <div className="field-line flex-1" />
+              <p className="font-cormorant text-[18px] font-light text-[#1a1a1a] border-b border-gray-300 px-2 leading-tight">
+                01.01.2027
+              </p>
             </div>
           </div>
 
