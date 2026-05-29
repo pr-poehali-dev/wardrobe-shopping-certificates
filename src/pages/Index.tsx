@@ -102,7 +102,9 @@ const Index = () => {
               Вручается
             </p>
             <div className="flex justify-center">
-              <div className="field-line" style={{ minWidth: '240px' }} />
+              <p className="font-cormorant text-[28px] font-light italic tracking-wide text-[#1a1a1a] border-b border-gray-300 px-8">
+                Елене
+              </p>
             </div>
           </div>
 
