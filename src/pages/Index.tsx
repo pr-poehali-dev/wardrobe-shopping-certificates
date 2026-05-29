@@ -85,11 +85,8 @@ const Index = () => {
             <p className="font-montserrat text-[8px] tracking-[0.5em] uppercase text-gray-400 mb-4">
               Настоящий документ подтверждает
             </p>
-            <h3 className="font-cormorant text-[46px] font-light text-[#1a1a1a] leading-none tracking-wide mb-2">
-              Подарочный
-            </h3>
-            <h3 className="font-cormorant italic text-[46px] font-light text-[#1a1a1a] leading-none tracking-wide">
-              сертификат
+            <h3 className="font-cormorant text-[46px] font-light text-[#1a1a1a] leading-none tracking-wide">
+              Подарочный сертификат
             </h3>
           </div>
 
