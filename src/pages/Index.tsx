@@ -167,12 +167,6 @@ const Index = () => {
           <div className="w-full space-y-6 mb-10">
             <div className="flex items-end gap-4">
               <p className="font-montserrat text-[8px] tracking-[0.3em] uppercase text-gray-400 whitespace-nowrap flex-shrink-0">
-                Дата активации
-              </p>
-              <div className="field-line flex-1" />
-            </div>
-            <div className="flex items-end gap-4">
-              <p className="font-montserrat text-[8px] tracking-[0.3em] uppercase text-gray-400 whitespace-nowrap flex-shrink-0">
                 Действителен до
               </p>
               <div className="field-line flex-1" />
