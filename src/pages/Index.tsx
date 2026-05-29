@@ -1,27 +1,52 @@
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#f0eeeb] flex items-center justify-center p-8 print:p-0 print:bg-white">
+    <div className="min-h-screen bg-[#f5f4f2] flex items-center justify-center p-8 print:p-0 print:bg-white">
       <style>{`
         @media print {
           body { margin: 0; }
-          .certificate { box-shadow: none !important; }
+          .certificate { box-shadow: none !important; page-break-after: avoid; }
           @page { size: A4 portrait; margin: 0; }
+        }
+        .cert-divider {
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(to right, transparent, #1a1a1a 20%, #1a1a1a 80%, transparent);
+        }
+        .cert-divider-light {
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(to right, transparent, #9ca3af 20%, #9ca3af 80%, transparent);
         }
         .font-cormorant { font-family: 'Cormorant Garamond', serif; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        .cert-line {
-          width: 100%;
-          height: 1px;
-          background-color: #d1d5db;
+        .certificate-border {
+          position: absolute;
+          inset: 16px;
+          border: 1px solid #d1d5db;
+          pointer-events: none;
         }
-        .cert-line-dark {
-          width: 100%;
-          height: 1px;
-          background-color: #1a1a1a;
+        .certificate-corner {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-color: #1a1a1a;
+          border-style: solid;
+        }
+        .corner-tl { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
+        .corner-tr { top: 10px; right: 10px; border-width: 1px 1px 0 0; }
+        .corner-bl { bottom: 10px; left: 10px; border-width: 0 0 1px 1px; }
+        .corner-br { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+        .service-number {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 11px;
+          font-weight: 300;
+          letter-spacing: 0.15em;
+          color: #9ca3af;
         }
         .field-line {
           border-bottom: 1px solid #d1d5db;
-          height: 22px;
+          min-width: 160px;
+          height: 20px;
         }
       `}</style>
 
@@ -29,105 +54,135 @@ const Index = () => {
         className="certificate relative bg-white shadow-2xl"
         style={{ width: '210mm', height: '297mm', maxWidth: '100%', overflow: 'hidden' }}
       >
-        {/* Outer border */}
-        <div style={{ position: 'absolute', inset: '14px', border: '1px solid #e5e7eb', pointerEvents: 'none' }} />
+        <div className="certificate-border" />
+        <div className="corner-tl certificate-corner" />
+        <div className="corner-tr certificate-corner" />
+        <div className="corner-bl certificate-corner" />
+        <div className="corner-br certificate-corner" />
 
-        <div
-          className="flex flex-col px-16"
-          style={{ height: '297mm', paddingTop: '44px', paddingBottom: '44px' }}
-        >
+        <div className="flex flex-col items-center justify-between px-14 py-10" style={{ height: '297mm' }}>
 
-          {/* ── LOGO ── */}
-          <div className="w-full mb-8">
-            <p className="font-montserrat text-[8px] tracking-[0.45em] uppercase text-gray-400 mb-2">
+          {/* Header */}
+          <div className="w-full text-center">
+            <p className="font-montserrat text-[9px] tracking-[0.4em] uppercase text-gray-400 mb-3">
               Персональный стилист
             </p>
-            <h1 className="font-cormorant text-[40px] font-light text-[#1a1a1a] leading-none tracking-wider">
+            <h1 className="font-cormorant text-[36px] font-light tracking-wide text-[#1a1a1a] leading-tight mb-1">
               Требунских Кирилл
             </h1>
-          </div>
-
-          <div className="cert-line-dark" />
-
-          {/* ── TITLE ── */}
-          <div className="w-full flex items-end justify-between mt-10 mb-10">
-            <h2 className="font-cormorant text-[52px] font-light text-[#1a1a1a] leading-none tracking-wide">
-              Подарочный<br />
-              <span className="italic">сертификат</span>
-            </h2>
-            <p className="font-montserrat text-[8px] tracking-[0.3em] uppercase text-gray-400 mb-2 text-right leading-loose">
-              Настоящий документ<br />подтверждает право<br />на получение услуг
+            <p className="font-cormorant italic text-[13px] font-light tracking-[0.1em] text-gray-400">
+              Stylist
             </p>
           </div>
 
-          <div className="cert-line" />
+          <div className="cert-divider" />
 
-          {/* ── RECIPIENT ── */}
-          <div className="w-full mt-8 mb-8">
-            <p className="font-montserrat text-[8px] tracking-[0.45em] uppercase text-gray-400 mb-3">
+          {/* Gift Certificate Title */}
+          <div className="text-center">
+            <p className="font-montserrat text-[8px] tracking-[0.5em] uppercase text-gray-400 mb-3">
+              Настоящий документ подтверждает
+            </p>
+            <h3 className="font-cormorant text-[42px] font-light text-[#1a1a1a] leading-none tracking-wide">
+              Подарочный сертификат
+            </h3>
+          </div>
+
+          {/* Recipient */}
+          <div className="w-full text-center">
+            <p className="font-montserrat text-[8px] tracking-[0.4em] uppercase text-gray-400 mb-2">
               Вручается
             </p>
-            <p className="font-cormorant text-[34px] font-light italic text-[#1a1a1a] leading-none">
-              Елене
-            </p>
+            <div className="flex justify-center">
+              <p className="font-cormorant text-[26px] font-light italic tracking-wide text-[#1a1a1a] border-b border-gray-300 px-8">
+                Елене
+              </p>
+            </div>
           </div>
 
-          <div className="cert-line" />
-
-          {/* ── WISH ── */}
-          <div className="w-full mt-8 mb-8">
-            <p className="font-cormorant italic text-[17px] font-light text-[#3a3a3a] leading-relaxed" style={{ maxWidth: '80%' }}>
+          {/* Wish */}
+          <div className="w-full text-center px-4">
+            <p className="font-montserrat text-[8px] tracking-[0.4em] uppercase text-gray-400 mb-3">
+              Пожелание
+            </p>
+            <p className="font-cormorant italic text-[15px] font-light text-[#1a1a1a] leading-relaxed tracking-wide">
               Для вдохновения, новых идей и приятных открытий. Пусть красота отражается не только в образах, но и в настроении, а каждый новый взгляд в зеркало добавляет уверенности и легкости.
             </p>
           </div>
 
-          <div className="cert-line" />
+          <div className="cert-divider-light" />
 
-          {/* ── SERVICES ── */}
-          <div className="w-full mt-8 mb-8 flex gap-12">
-            <div className="flex-1">
-              <p className="font-montserrat text-[7px] tracking-[0.4em] uppercase text-gray-400 mb-3">01</p>
-              <h4 className="font-cormorant text-[22px] font-medium text-[#1a1a1a] leading-tight mb-2">
-                Разбор гардероба
-              </h4>
-              <p className="font-montserrat text-[8.5px] font-light text-gray-500 leading-relaxed">
-                Анализ гардероба, выявление капсульных единиц, составление образов и рекомендации по обновлению
-              </p>
+          {/* Services */}
+          <div className="w-full space-y-5">
+            <p className="font-montserrat text-[8px] tracking-[0.4em] uppercase text-gray-400 text-center mb-4">
+              Включает услуги
+            </p>
+
+            <div className="flex items-start gap-5">
+              <div className="flex-shrink-0 mt-1">
+                <span className="service-number">01</span>
+              </div>
+              <div className="flex-1">
+                <h4 className="font-cormorant text-[20px] font-medium text-[#1a1a1a] tracking-wide leading-tight mb-1">
+                  Разбор гардероба
+                </h4>
+                <p className="font-montserrat text-[9px] font-light tracking-[0.1em] text-gray-500 leading-relaxed">
+                  Анализ существующего гардероба, выявление капсульных единиц, составление образов и рекомендации по обновлению
+                </p>
+              </div>
             </div>
-            <div style={{ width: '1px', background: '#e5e7eb', flexShrink: 0 }} />
-            <div className="flex-1">
-              <p className="font-montserrat text-[7px] tracking-[0.4em] uppercase text-gray-400 mb-3">02</p>
-              <h4 className="font-cormorant text-[22px] font-medium text-[#1a1a1a] leading-tight mb-2">
-                Шопинг сопровождение
-              </h4>
-              <p className="font-montserrat text-[8.5px] font-light text-gray-500 leading-relaxed">
-                Индивидуальный шопинг с учётом вашего типажа, образа жизни и бюджета
+
+            <div className="cert-divider-light" />
+
+            <div className="flex items-start gap-5">
+              <div className="flex-shrink-0 mt-1">
+                <span className="service-number">02</span>
+              </div>
+              <div className="flex-1">
+                <h4 className="font-cormorant text-[20px] font-medium text-[#1a1a1a] tracking-wide leading-tight mb-1">
+                  Шопинг сопровождение
+                </h4>
+                <p className="font-montserrat text-[9px] font-light tracking-[0.1em] text-gray-500 leading-relaxed">
+                  Индивидуальный шопинг с персональным стилистом, подбор образов с учётом вашего типажа, образа жизни и бюджета
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="cert-divider-light" />
+
+          {/* Fields */}
+          <div className="w-full">
+            <div className="flex items-end gap-4">
+              <p className="font-montserrat text-[8px] tracking-[0.3em] uppercase text-gray-400 whitespace-nowrap flex-shrink-0">
+                Действителен до
+              </p>
+              <p className="font-cormorant text-[18px] font-light text-[#1a1a1a] border-b border-gray-300 px-2 leading-tight">
+                01.01.2027
               </p>
             </div>
           </div>
 
-          {/* ── FOOTER ── */}
-          <div className="w-full mt-auto">
-            <div className="cert-line-dark mb-7" />
+          {/* Footer */}
+          <div className="w-full">
+            <div className="cert-divider mb-6" />
             <div className="flex justify-between items-end">
               <div>
                 <p className="font-montserrat text-[7px] tracking-[0.4em] uppercase text-gray-400 mb-3">
                   Подпись стилиста
                 </p>
-                <div className="field-line" style={{ minWidth: '150px' }} />
-              </div>
-              <div className="text-center">
-                <p className="font-montserrat text-[7px] tracking-[0.4em] uppercase text-gray-400 mb-1">
-                  Действителен до
-                </p>
-                <p className="font-cormorant text-[18px] font-light text-[#1a1a1a]">01.01.2027</p>
+                <div className="field-line" style={{ minWidth: '140px' }} />
               </div>
               <div className="text-right">
                 <p className="font-montserrat text-[7px] tracking-[0.4em] uppercase text-gray-400 mb-3">
                   Номер сертификата
                 </p>
-                <div className="field-line" style={{ minWidth: '150px' }} />
+                <div className="field-line" style={{ minWidth: '140px' }} />
               </div>
+            </div>
+            <div className="text-center mt-6">
+              <p className="font-cormorant italic text-[13px] font-light text-gray-300 tracking-widest">
+                Требунских Кирилл · Персональный стилист
+              </p>
             </div>
           </div>
 
