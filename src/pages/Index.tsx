@@ -113,11 +113,9 @@ const Index = () => {
             <p className="font-montserrat text-[8px] tracking-[0.4em] uppercase text-gray-400 mb-4">
               Пожелание
             </p>
-            <div className="space-y-3">
-              <div className="field-line w-full" />
-              <div className="field-line w-full" />
-              <div className="field-line w-full" />
-            </div>
+            <p className="font-cormorant italic text-[16px] font-light text-[#1a1a1a] leading-relaxed tracking-wide">
+              Для вдохновения, новых идей и приятных открытий. Пусть красота отражается не только в образах, но и в настроении, а каждый новый взгляд в зеркало добавляет уверенности и легкости.
+            </p>
           </div>
 
           <div className="cert-divider-light mb-10" />
