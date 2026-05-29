@@ -71,11 +71,8 @@ const Index = () => {
               Персональный стилист
             </p>
             <h1 className="font-cormorant text-[38px] font-light tracking-wide text-[#1a1a1a] leading-tight mb-1">
-              Требунских
+              Требунских Кирилл
             </h1>
-            <h2 className="font-cormorant text-[26px] font-light tracking-[0.2em] text-[#1a1a1a] mb-1">
-              Кирилл
-            </h2>
             <p className="font-cormorant italic text-[14px] font-light tracking-[0.1em] text-gray-400">
               Stylist
             </p>
